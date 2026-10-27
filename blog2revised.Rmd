@@ -54,6 +54,7 @@ books_sorted <- books_clean[order(-books_clean$value_index), ]
 top10_books <- head(books_sorted, 10)
 books_clean
 ```
+
 ## Analysis of the Research Result
 The visualized graph clearly indicates that the price of the books and the readers' rating have no positive relationship. The expensive books does not necessarilly have a high rating, and vice versa, the cheap books also have high quality ones, which totally rule out the opinion that the expensive one is better.
 ```{r}
@@ -69,11 +70,13 @@ p <- ggplot(books_clean, aes(x = price_num, y = score)) +
 ggsave("figures/book_scatter.png", plot = p, width = 6, height = 4)
 print(p)
 ```
+
 The result of the sorting clearly selected the top ten books with the highest value index, all of the ten books have the advantages of lower price and higher rating simultaneously, which are the most suggested books to purchase in the website. We should notice that we do not know how many reviews each rating comes from. One five-star rating may only come from one single comment, so these ratings may not represent general opinions.
 ```{r}
 print("Top 10 books with highest value index:")
 print(top10_books[,c("book_title","price_num","score","value_index")])
 ```
+
 ## Conclusion
 Throughout this data analysis, I learned how to use the method of scratching to obtain the public data of the website, and finish real life analysis by data cleaning, index constructing and sorting statistics.
 
